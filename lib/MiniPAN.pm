@@ -18,11 +18,11 @@ MiniPAN - A minimalistic installer of CPAN modules for the iPhone
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION     = '0.02';
+our $VERSION     = '0.03';
 our $CPAN_MIRROR = 'ftp://cpan.catalyst.net.nz/pub/CPAN/modules/';
 our $BUILD_DIR   = $ENV{'HOME'} . '/.minipan/';
 our $MOD_LIST    = '02packages.details.txt';
@@ -155,8 +155,8 @@ sub install {
 		system($build_script, 'test') == 0
 			or die("testing failed, see error(s) above\n");
 		$self->_print("installing");
-		#system('sudo', $build_script, 'install') == 0
-		#	or die("install failed, see error(s) above\n");
+		system('sudo', $build_script, 'install') == 0
+			or die("install failed, see error(s) above\n");
 	};
 	$self->_print($@) and exit 1 if ($@);
 	
@@ -223,7 +223,7 @@ sub _get_server_path {
 	}
 	close(LIST);
 
-	croak($self->{'module'} . "does not exist on CPAN\n") unless ($path);
+	croak($self->{'module'} . " does not exist on CPAN\n") unless ($path);
 
 	$self->_print("path is: $path");
 
