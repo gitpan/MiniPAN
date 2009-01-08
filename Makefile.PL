@@ -5,6 +5,11 @@ WriteMakefile
           'NAME' => 'MiniPAN',
           'VERSION_FROM' => 'lib/MiniPAN.pm',
           'PREREQ_PM' => {
+                           'Archive::Tar' => '0',
+                           'File::Path' => '0',
+                           'IO::Uncompress::Gunzip' => '0',
+                           'LWP::UserAgent' => '0',
+                           'Spiffy' => '0',
                            'Test::More' => '0'
                          },
           'INSTALLDIRS' => 'site',

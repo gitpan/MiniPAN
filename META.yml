@@ -1,18 +1,23 @@
 ---
 name: MiniPAN
-version: 0.01
+version: 0.02
 author:
   - 'Tobias Kirschstein <mail@lev.geek.nz>'
 abstract: A minimalistic installer of CPAN modules for the iPhone
-license: perl
+license: bsd
 resources:
-  license: http://dev.perl.org/licenses/
+  license: http://opensource.org/licenses/bsd-license.php
 build_requires:
+  Archive::Tar: 0
+  File::Path: 0
+  IO::Uncompress::Gunzip: 0
+  LWP::UserAgent: 0
+  Spiffy: 0
   Test::More: 0
 provides:
   MiniPAN:
     file: lib/MiniPAN.pm
-    version: 0.01
+    version: 0.02
 generated_by: Module::Build version 0.3
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
